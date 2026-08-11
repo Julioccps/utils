@@ -7,7 +7,7 @@ a built-in alternative on Windows.
 ## What Exactly?
 
 * [x] `yes` - that little thing that repeats what you told it;
-* [ ] `seq` - prints sequences of numbers;
+* [x] `seq` - prints sequences of numbers;
 * [ ] `tac` - `cat`, but with lines in reverse order;
 * [ ] `rev` - reverses each line;
 * [ ] `true` / `false` - only set the exit status;
