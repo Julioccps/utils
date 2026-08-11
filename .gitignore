@@ -1,0 +1,13 @@
+build/
+.cache/
+
+build/*
+.cache/*
+
+*.o
+*.exe
+
+tags
+*.lock
+*.plist
+compile_commands.json
