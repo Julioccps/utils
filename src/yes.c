@@ -4,16 +4,42 @@
 #include <string.h>
 
 #define BUF_SIZE (64u * 1024u)
+#define VERSION_CODE "0.0.2"
+
+void usage(void){
+	printf("yes [option] | [STRING]...\n"
+				 "Option:\n"
+				 "\t--help, -h\n"
+				 "\t\tShows this message and exits\n"
+				 "\t--version, -v\n"
+				 "\t\tShows version info and exits\n"
+				 "Repeatedly outputs a line with all the STRINGs, or 'y'\n"
+				 );
+}
+
+void version(void){
+	printf("yes version: %s\n", VERSION_CODE);
+}
 
 int main(int argc, char **argv){
     const char *line = "y\n";
     size_t line_len = 2;
     char *allocated = NULL;
 
+    if (argc == 2){
+        if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0){
+            usage();
+            return 0;
+        }
+        else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0){
+            version();
+            return 0;
+        }
+    }
+
     if (argc > 1){
         size_t tl = 0;
         for (int i = 1; i < argc; i++) tl += strlen(argv[i]);
-        /* the words, (argc - 2) spaces between them, and one '\n' */
         line_len = tl + (size_t)argc - 1;
         allocated = malloc(line_len);
         if (!allocated) return EXIT_FAILURE;
@@ -28,7 +54,6 @@ int main(int argc, char **argv){
         line = allocated;
     }
 
-    /* tile the line into a big buffer so one write covers many lines */
     size_t buf_len = BUF_SIZE < line_len ? line_len : BUF_SIZE;
     char *buf = malloc(buf_len);
     if (!buf){
@@ -41,7 +66,6 @@ int main(int argc, char **argv){
         fill += line_len;
     }
 
-    /* unbuffered: stop stdio from copying our buffer through its own */
     setvbuf(stdout, NULL, _IONBF, 0);
     while (fwrite(buf, 1, fill, stdout) == fill);
 
