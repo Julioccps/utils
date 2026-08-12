@@ -6,6 +6,13 @@
 #define VERSION_OPL "--version"
 #define VERSION_OPS "-v"
 
+/* Exit status for bad usage: wrong options, wrong argument count, etc.
+ * Must be a small positive number. Returning -1 makes the shell see
+ * 255, 127 or -1 depending on who is asking, and 127 in particular
+ * means "command not found" to any script checking $?.
+ */
+#define EX_USAGE 1
+
 typedef enum{
     OP_NOARG,   // No arguments required
     OP_RARG     // Argument is required

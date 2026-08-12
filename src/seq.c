@@ -4,8 +4,8 @@
 #include <string.h>
 
 #define PROG "seq"
-#define VERSION_CODE "0.0.2"
-#define USAGE "[option] last| first last | first step last\n" \
+#define VERSION_CODE "0.0.3"
+#define USAGE "[option] last | first last | first step last\n" \
     "Option:\n" \
     "\t--help, -h\n" \
     "\t\tShows this message and exits\n" \
@@ -49,7 +49,7 @@ int main(int argc, char **argv){
 		else if (strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--separator") == 0){
 			if (++i >= argc) {
 				fputs("Not Enough arguments\n", stderr);
-				return -1;
+				return EX_USAGE;
 			}
 			separator = argv[i];
 		}
@@ -57,18 +57,18 @@ int main(int argc, char **argv){
 		else if (isnumber(argv[i])){
 			if (count == 3){
 				fputs("Too many arguments\n", stderr);
-				return -1;
+				return EX_USAGE;
 			}
 			char *end;
 			nums[count++] = strtol(argv[i], &end, 10);
 			if (*end != '\0'){
 				fprintf(stderr, "Invalid number: %s\n", argv[i]);
-				return -1;
+				return EX_USAGE;
 			}
 		}
 		else {
 			fprintf(stderr, "Unknown option: %s\n", argv[i]);
-			return -1;
+			return EX_USAGE;
 		}
 	}
 
@@ -78,12 +78,12 @@ int main(int argc, char **argv){
 		case 3: first = nums[0]; increment = nums[1]; last = nums[2]; break;
 		default:
 			fputs("Not Enough arguments\n", stderr);
-			return -1;
+			return EX_USAGE;
 	}
 
 	if (increment == 0){
 		fputs("Increment cannot be zero\n", stderr);
-		return -1;
+		return EX_USAGE;
 	}
 
 	int width = 1;
