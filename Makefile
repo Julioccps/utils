@@ -3,7 +3,9 @@ BUILD_DIR := build
 INCLUDE_DIR := include
 
 CC := clang
-CFLAGS := -Os -MD -Wall -Wextra -Wpedantic -I$(INCLUDE_DIR)
+# _CRT_SECURE_NO_WARNINGS: MSVC deprecates standard C (fopen, getenv, strcpy)
+# in favour of its own _s variants, which are not standard. We keep the standard.
+CFLAGS := -Os -MD -Wall -Wextra -Wpedantic -D_CRT_SECURE_NO_WARNINGS -I$(INCLUDE_DIR)
 LDFLAGS := -Os
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)

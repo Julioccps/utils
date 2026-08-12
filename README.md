@@ -21,4 +21,4 @@ a built-in alternative on Windows.
 * [ ] `hexdump` / `xxd` - hex dumps files;
 * [ ] `file` - identifies files from magic numbers;
 * [ ] `du` - recursive disk usage;
-* [ ] `man` - manual for each one before (which I'll have to write too);
+* [x] `man` - manual for each one before (which I'll have to write too);

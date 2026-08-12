@@ -12,9 +12,9 @@
     "\t--version, -v\n" \
     "\t\tShows version info and exits\n" \
     "\t--equal-width, -w\n" \
-    "\t\tequalizes width with largest number with zeros\n" \
+    "\t\tEqualizes width with largest number with zeros\n" \
     "\t--separator STRING, -s STRING\n" \
-    "\t\tuse STRING as the separator, default: '\\n'"
+    "\t\tUses STRING as the separator, default: '\\n'"
 
 #define COMMON_IMPLEMENTATION
 #include <common.h>
