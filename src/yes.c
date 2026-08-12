@@ -6,13 +6,13 @@
 #define BUF_SIZE (64u * 1024u)
 #define PROG "yes"
 #define VERSION_CODE "0.0.3"
-#define USAGE "[option] | [STRING]...\n \
-	Option:\n \
-	\t--help, -h\n \
-	\t\tShows this message and exits\n \
-	\t--version, -v\n \
-	\t\tShows version info and exits\n \
-	Repeatedly outputs a line with all the STRINGs, or 'y'"
+#define USAGE "[option] | [STRING]...\n" \
+    "Option:\n" \
+	"\t--help, -h\n" \
+	"\t\tShows this message and exits\n" \
+	"\t--version, -v\n" \
+	"\t\tShows version info and exits\n" \
+	"Repeatedly outputs a line with all the STRINGs, or 'y'"
 
 #define COMMON_IMPLEMENTATION
 #include <common.h>

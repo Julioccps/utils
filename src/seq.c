@@ -5,16 +5,16 @@
 
 #define PROG "seq"
 #define VERSION_CODE "0.0.2"
-#define USAGE "[option] last| first last | first step last\n \
-    Option:\n \
-    \t--help, -h\n \
-    \t\tShows this message and exits\n \
-    \t--version, -v\n \
-    \t\tShows version info and exits\n \
-    \t--equal-width, -w\n \
-    \t\tequalizes width with largest number with zeros\n \
-    \t--separator STRING, -s STRING\n \
-    \t\tuse STRING as the separator, default: '\\n'"
+#define USAGE "[option] last| first last | first step last\n" \
+    "Option:\n" \
+    "\t--help, -h\n" \
+    "\t\tShows this message and exits\n" \
+    "\t--version, -v\n" \
+    "t\tShows version info and exits\n" \
+    "\t--equal-width, -w\n" \
+    "\t\tequalizes width with largest number with zeros\n" \
+    "\t--separator STRING, -s STRING\n" \
+    "\t\tuse STRING as the separator, default: '\\n'"
 
 #define COMMON_IMPLEMENTATION
 #include <common.h>
