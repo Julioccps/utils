@@ -10,7 +10,7 @@
     "\t--help, -h\n" \
     "\t\tShows this message and exits\n" \
     "\t--version, -v\n" \
-    "t\tShows version info and exits\n" \
+    "\t\tShows version info and exits\n" \
     "\t--equal-width, -w\n" \
     "\t\tequalizes width with largest number with zeros\n" \
     "\t--separator STRING, -s STRING\n" \
