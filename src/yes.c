@@ -4,22 +4,18 @@
 #include <string.h>
 
 #define BUF_SIZE (64u * 1024u)
-#define VERSION_CODE "0.0.2"
+#define PROG "yes"
+#define VERSION_CODE "0.0.3"
+#define USAGE "[option] | [STRING]...\n \
+	Option:\n \
+	\t--help, -h\n \
+	\t\tShows this message and exits\n \
+	\t--version, -v\n \
+	\t\tShows version info and exits\n \
+	Repeatedly outputs a line with all the STRINGs, or 'y'"
 
-void usage(void){
-	printf("yes [option] | [STRING]...\n"
-				 "Option:\n"
-				 "\t--help, -h\n"
-				 "\t\tShows this message and exits\n"
-				 "\t--version, -v\n"
-				 "\t\tShows version info and exits\n"
-				 "Repeatedly outputs a line with all the STRINGs, or 'y'\n"
-				 );
-}
-
-void version(void){
-	printf("yes version: %s\n", VERSION_CODE);
-}
+#define COMMON_IMPLEMENTATION
+#include <common.h>
 
 int main(int argc, char **argv){
     const char *line = "y\n";

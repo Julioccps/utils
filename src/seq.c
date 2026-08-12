@@ -3,25 +3,22 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define VERSION_CODE "0.0.1"
+#define PROG "seq"
+#define VERSION_CODE "0.0.2"
+#define USAGE "[option] last| first last | first step last\n \
+    Option:\n \
+    \t--help, -h\n \
+    \t\tShows this message and exits\n \
+    \t--version, -v\n \
+    \t\tShows version info and exits\n \
+    \t--equal-width, -w\n \
+    \t\tequalizes width with largest number with zeros\n \
+    \t--separator STRING, -s STRING\n \
+    \t\tuse STRING as the separator, default: '\\n'"
 
-void usage(void){
-	printf("seq [option] last| first last | first step last\n"
-				 "Option:\n"
-				 "\t--help, -h\n"
-				 "\t\tShows this message and exits\n"
-				 "\t--version, -v\n"
-				 "\t\tShows version info and exits\n"
-				 "\t--equal-width, -w\n"
-				 "\t\tequalizes width with largest number with zeros\n"
-				 "\t--separator STRING, -s STRING\n"
-				 "\t\tuse STRING as the separator, default: '\\n'\n"
-				 );
-}
+#define COMMON_IMPLEMENTATION
+#include <common.h>
 
-void version(void){
-	printf("seq version: %s\n", VERSION_CODE);
-}
 
 int isnumber(const char *s){
 	if (*s == '-' || *s == '+') s++;

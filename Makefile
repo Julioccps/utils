@@ -1,8 +1,9 @@
 SRC_DIR := src
 BUILD_DIR := build
+INCLUDE_DIR := include
 
 CC := clang
-CFLAGS := -Os -MD -Wall -Wextra -Wpedantic
+CFLAGS := -Os -MD -Wall -Wextra -Wpedantic -I$(INCLUDE_DIR)
 LDFLAGS := -Os
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)
@@ -23,3 +24,5 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+-include $(OBJS:.o=.d)
