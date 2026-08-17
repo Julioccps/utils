@@ -38,6 +38,9 @@ typedef struct {
 #define COMMON_IMPLEMENTED
 
 #include <stdio.h>
+#include <windows.h>
+#include <io.h>
+#include <fcntl.h>
 
 #if !defined(PROG) || !defined(VERSION_CODE) || !defined(USAGE)
 #error "Each tool needs to define PROG, VERSION_CODE and USAGE"
@@ -51,5 +54,11 @@ static inline void version(void){
     fputs(PROG " version: " VERSION_CODE "\n", stdout);
 }
 
+#endif
+
+#ifdef BINARY_IO
+static inline void prepare_binary_io(void){
+        _setmode(_fileno(stdout), _O_BINARY);
+}
 #endif
 #endif

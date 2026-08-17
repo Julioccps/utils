@@ -3,9 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 #define BUF_SIZE (64u * 1024u)
 #define PROG "yes"
-#define VERSION_CODE "0.0.4"
+#define VERSION_CODE "0.0.5"
 #define USAGE "[option] | [STRING]...\n" \
     "Option:\n" \
 	"\t--help, -h\n" \
@@ -13,11 +14,12 @@
 	"\t--version, -v\n" \
 	"\t\tShows version info and exits\n" \
 	"Repeatedly outputs a line with all the STRINGs, or 'y'"
-
+#define BINARY_IO
 #define COMMON_IMPLEMENTATION
 #include <common.h>
 
 int main(int argc, char **argv){
+    prepare_binary_io();
     const char *line = "y\n";
     size_t line_len = 2;
     char *allocated = NULL;
