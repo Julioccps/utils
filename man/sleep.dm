@@ -5,7 +5,7 @@ USAGE
     \Ssleep\c [option] | NUMBER[SUFIX]
 
 OPTION
-    --help, -h\n
+    --help, -h
 	    Shows this message and exits
 	--version, -v
 	    Shows version info and exits
