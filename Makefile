@@ -2,11 +2,21 @@ SRC_DIR := src
 BUILD_DIR := build
 INCLUDE_DIR := include
 
+CONFIG ?= debug
+
 CC := clang
 # _CRT_SECURE_NO_WARNINGS: MSVC deprecates standard C (fopen, getenv, strcpy)
 # in favour of its own _s variants, which are not standard. We keep the standard.
-CFLAGS := -Os -MD -Wall -Wextra -Wpedantic -D_CRT_SECURE_NO_WARNINGS -I$(INCLUDE_DIR)
-LDFLAGS := -Os
+CFLAGS := -MD -Wall -Wextra -Wpedantic -D_CRT_SECURE_NO_WARNINGS -I$(INCLUDE_DIR)
+LDFLAGS :=
+
+ifeq ($(CONFIG), debug)
+CFLAGS += -O0 -g
+LDFLAGS += -O0 -g
+else
+CFLAGS += -Os
+LDFLAGS += -Os
+endif
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 OBJS := $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRCS))

@@ -5,7 +5,7 @@
 
 #define BUF_SIZE (64u * 1024u)
 #define PROG "yes"
-#define VERSION_CODE "0.0.3"
+#define VERSION_CODE "0.0.4"
 #define USAGE "[option] | [STRING]...\n" \
     "Option:\n" \
 	"\t--help, -h\n" \
@@ -25,11 +25,11 @@ int main(int argc, char **argv){
     if (argc == 2){
         if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0){
             usage();
-            return 0;
+            return SUCCESS;
         }
         else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0){
             version();
-            return 0;
+            return SUCCESS;
         }
     }
 

@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 #define PROG "man"
-#define VERSION_CODE "0.0.1"
+#define VERSION_CODE "0.0.2"
 #define USAGE "[option] | <program_name>\n" \
     "Option:\n" \
     "\t--help, -h\n" \
@@ -113,7 +113,7 @@ static int exe_dir(char *dir, size_t size){
     DWORD n = GetModuleFileNameA(NULL, dir, (DWORD)size);
     if (n == 0 || n == size) return 0;
     char *slash = strrchr(dir, '\\');   // always backslashes, never '/'
-    if (!slash) return 0;
+    if (!slash) return SUCCESS;
     *slash = '\0';
     return 1;
 }
@@ -126,7 +126,7 @@ static int join_path(char *out, size_t size, const char *base,
     size_t lb = strlen(base), ls = strlen(sub);
     size_t ln = strlen(name), le = strlen(FILE_EXT);
 
-    if (lb + ls + ln + le + 1 > size) return 0;
+    if (lb + ls + ln + le + 1 > size) return SUCCESS;
     memcpy(out, base, lb);
     memcpy(out + lb, sub, ls);
     memcpy(out + lb + ls, name, ln);

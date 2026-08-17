@@ -4,7 +4,7 @@
 #include <string.h>
 
 #define PROG "seq"
-#define VERSION_CODE "0.0.3"
+#define VERSION_CODE "0.0.4"
 #define USAGE "[option] last | first last | first step last\n" \
     "Option:\n" \
     "\t--help, -h\n" \
@@ -28,7 +28,7 @@ int isnumber(const char *s){
 int main(int argc, char **argv){
 	if (argc == 1) {
 		usage();
-		return 0;
+		return SUCCESS;
 	}
 	int first = 1;
 	int increment = 1;
@@ -40,11 +40,11 @@ int main(int argc, char **argv){
 	for (int i = 1; i < argc; i++){
 		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0){
 			usage();
-			return 0;
+			return SUCCESS;
 		}
 		else if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--version") == 0){
 			version();
-			return 0;
+			return SUCCESS;
 		}
 		else if (strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--separator") == 0){
 			if (++i >= argc) {
@@ -100,5 +100,5 @@ int main(int argc, char **argv){
 		printed = 1;
 	}
 	if (printed) putchar('\n');
-	return 0;
+	return SUCCESS;
 }

@@ -12,7 +12,7 @@
  * means "command not found" to any script checking $?.
  */
 #define EX_USAGE 1
-
+#define SUCCESS  0
 typedef enum{
     OP_NOARG,   // No arguments required
     OP_RARG     // Argument is required
