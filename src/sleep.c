@@ -59,9 +59,19 @@ int main(int argc, char **argv){
 			return SUCCESS;
 		}
 		else {
-		  sleepms += parse_time(argv[i]);
+		  int ms = parse_time(argv[i]);
+		  /* Sleep() takes an unsigned DWORD: a negative value here would wrap
+		   * to a huge positive one (-1 becomes INFINITE) instead of failing.
+		   */
+		  if (ms < 0){
+		      fputs(PROG ": invalid time: ", stderr);
+		      fputs(argv[i], stderr);
+		      putc('\n', stderr);
+		      return EX_USAGE;
+		  }
+		  sleepms += ms;
 		}
     }
-    Sleep(sleepms);
+    Sleep((DWORD)sleepms);
     return 0;
 }
