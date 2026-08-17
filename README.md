@@ -10,8 +10,8 @@ a built-in alternative on Windows.
 * [x] `seq` - prints sequences of numbers;
 * [ ] `tac` - `cat`, but with lines in reverse order;
 * [ ] `rev` - reverses each line;
-* [ ] `true` / `false` - only set the exit status;
-* [ ] `sleep` - Unix-style sleep;
+* [x] `true` / `false` - only set the exit status;
+* [x] `sleep` - Unix-style sleep;
 * [ ] `tee` - stdin -> stdout & a file;
 * [ ] `head` - first N lines;
 * [ ] `tail` - last N lines;
