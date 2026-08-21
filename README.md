@@ -16,7 +16,7 @@ a built-in alternative on Windows.
 * [ ] `head` - first N lines;
 * [ ] `tail` - last N lines;
 * [ ] `wc` - lines/words/bytes;
-* [ ] `printf` - prints formatted strings;
+* [x] `printf` - prints formatted strings;
 * [ ] `strings` - extracts printable strings from binaries;
 * [ ] `hexdump` / `xxd` - hex dumps files;
 * [ ] `file` - identifies files from magic numbers;
