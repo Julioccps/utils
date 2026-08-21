@@ -7,8 +7,8 @@ USAGE
 OPTION
     --help, -h
 	    Shows this message and exits
-	--version, -v
-	    Shows version info and exits
+    --version, -v
+        Shows version info and exits
 
 NOTE
     An unrecognized \\X sequence is printed back verbatim, backslash
